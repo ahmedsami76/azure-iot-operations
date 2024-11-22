@@ -9,11 +9,6 @@ sudo apt update && sudo apt upgrade -y
 ### Step 2: Install the GNOME Desktop Environment
 Install the GNOME desktop environment. You can choose the full desktop or a minimal install.
 
-For a full GNOME installation:
-```bash
-sudo apt install ubuntu-desktop
-```
-
 For a minimal GNOME installation:
 ```bash
 sudo apt install gnome-core
@@ -33,7 +28,7 @@ sudo apt install gnome-core
 
 3. **Allow xrdp through the firewall**:
    ```bash
-   sudo ufw allow 3389/tcp
+   sudo ufw disable
    ```
 
 ### Step 4: Configure xrdp to Use GNOME
@@ -62,12 +57,11 @@ Restart the xrdp service to apply your changes.
 sudo systemctl restart xrdp
 ```
 
-### Step 6: Connect via RDP
-Use your preferred RDP client to connect to your Ubuntu VM:
-- **Hostname**: The public IP address or DNS name of your Azure VM.
-- **Username and Password**: The credentials of a user account on your Ubuntu VM.
-
-### Additional Notes
-- Make sure your Network Security Group (NSG) rules in Azure allow inbound traffic on port 3389 to your VM.
-- You might need to handle specific GNOME dependencies or settings if you encounter issues. GNOME can be more resource-intensive than lighter desktop environments like XFCE or MATE, so ensure that your VM has sufficient resources.
-- If you experience any problems, checking the xrdp logs found in `/var/log/xrdp` can be helpful for troubleshooting.
+### Step 6: Install `az` CLI
+```bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+The latest version of the connectedk8s extension for Azure CLI
+```bash
+az extension add --upgrade --name connectedk8s
+```
