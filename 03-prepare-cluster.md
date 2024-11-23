@@ -1,4 +1,4 @@
-### Step 1: Optimize `k3s`
+### Step 1: Optimize filesystem monitoring
 Run the following command to increase the user watch/instance limits.
 ```bash
 echo fs.inotify.max_user_instances=8192 | sudo tee -a /etc/sysctl.conf
@@ -14,6 +14,11 @@ sudo sysctl -p
 
 ### Step 2: Arc-enable your cluster
 Register the required resource providers in your subscription
+
+```bash
+az login 
+```
+
 ```bash
 az provider register -n "Microsoft.ExtendedLocation"
 az provider register -n "Microsoft.Kubernetes"
@@ -29,9 +34,9 @@ az login
 ```
 
 ```bash
-CLUSTER_NAME=aiok3scluster
+CLUSTER_NAME=<your k3s cluster name>
 REGION=westus2
-RESOURCE_GROUP=rg-aio
+RESOURCE_GROUP=<your rg name>
 SUBSCRIPTION_ID=$(az account list --query "[?isDefault].id" --output tsv)
 
 

@@ -4,6 +4,7 @@ Ensure your system is up-to-date.
 curl -sfL https://get.k3s.io | sh -
 ```
 
+(OPTIONAL)
 Change the cluster name.
 ```bash
 mkdir -p ~/.kube
@@ -28,8 +29,8 @@ current-context: aiok3scluster
 ```
 Make sure the current context is set to the new cluster name
 ```bash
-kubectl config use-context aiok3scluster
-kubectl config current-context
+sudo kubectl config use-context aiok3scluster
+sudo kubectl config current-context
 ```
 ```bash
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
@@ -46,10 +47,4 @@ sudo bash get_helm.sh
 
 ```
 
-### Step 2: Install `az`
-
-For a scripted installation:
-```bash
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-```
 

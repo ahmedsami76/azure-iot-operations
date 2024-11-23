@@ -2,7 +2,7 @@
 This quickstart uses the OPC PLC simulator to generate sample data. To deploy the OPC PLC simulator, run the following command:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/opc-plc-deployment.yaml
+sudo kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/opc-plc-deployment.yaml
 ```
 
 ### Step 2: Configure Cluster

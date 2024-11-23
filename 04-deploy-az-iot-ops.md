@@ -32,12 +32,12 @@ az iot ops schema registry create  --subscription $SUBSCRIPTION_ID  -g  $RESOURC
 
 Prepare the cluster for Azure IoT Operations deployment
 ```bash
-az iot ops init  --subscription $SUBSCRIPTION_ID  -g rg-aio  --cluster $CLUSTER_NAME
+az iot ops init  --subscription $SUBSCRIPTION_ID  -g $RESOURCE_GROUP  --cluster $CLUSTER_NAME
 ```
 
 Deploy Azure IoT Operations
 ```bash
-az iot ops create  --subscription $SUBSCRIPTION_ID  -g rg-aio  --cluster $CLUSTER_NAME  --custom-location aiok3scluster-cl-8778  -n aiok3scluster-ops-instance  --sr-resource-id /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.DeviceRegistry/schemaRegistries/$SCHEMA_REGISTRY  --broker-frontend-replicas 2  --broker-frontend-workers 2  --broker-backend-part 2  --broker-backend-workers 2  --broker-backend-rf 2  --broker-mem-profile Medium
+az iot ops create  --subscription $SUBSCRIPTION_ID  -g $RESOURCE_GROUP  --cluster $CLUSTER_NAME  --custom-location aiok3scluster-cl-$RANDOM  -n aiok3scluster-ops-instance  --sr-resource-id /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.DeviceRegistry/schemaRegistries/$SCHEMA_REGISTRY  --broker-frontend-replicas 2  --broker-frontend-workers 2  --broker-backend-part 2  --broker-backend-workers 2  --broker-backend-rf 2  --broker-mem-profile Medium
 ```
 
 Check Deployment
