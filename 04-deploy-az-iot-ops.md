@@ -1,11 +1,8 @@
-### Step 0: Make sure you are logged in using the right acccount and scope
-```bash
-az login
-```
 
-### Step 1: 
+### Step 1: Install the IoT Operations extension
 The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 ```bash
+az login
 az extension add --upgrade --name azure-iot-ops
 
 ```
