@@ -5,23 +5,15 @@
 [Create a lakehouse](https://learn.microsoft.com/en-us/fabric/onelake/create-lakehouse-onelake)
 Note: ensure Lakehouse schemas (Public Preview) is **unchecked**
 
-### Step 3: Create a Service Principal
-```bash
-az login
-SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-SPN=<Unique SP Name>
 
-az ad sp create-for-rbac -n $SPN --role "Owner" --scopes /subscriptions/$SUBSCRIPTION_ID
-```
-
-### Step 4: Grant the SP access to Fabric
+### Step 3: Enable SP access to Fabric
 From Fabric Admin Settings enable the following settings:
 - Service principals can use Fabric APIs
 - Allow service principals to create and use profiles
 
 On the Fabric Wrkspace grant contributor access to the System Managed Identity or SPN 
 
-### Step 4a: Grant the System-Assigend Managed Identity acccess to Fabric workspace
+### Step 4: Grant the System-Assigend Managed Identity acccess to Fabric workspace
 If using system-assigned managed identity, in Azure portal, go to your Azure IoT Operations instance and select Overview. 
 Copy the name of the extension listed after Azure IoT Operations Arc extension. For example, azure-iot-operations-xxxx7. 
 Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
